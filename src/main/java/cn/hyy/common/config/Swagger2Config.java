@@ -1,5 +1,6 @@
 package cn.hyy.common.config;
 
+import cn.hyy.common.properties.SwaggerProperties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -16,14 +17,14 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * @author hyy
  */
 @EnableSwagger2
-@ConditionalOnProperty(name = {"swagger.enabled"}, havingValue = "true")
+@ConditionalOnProperty(name = {"common.swagger.enabled"}, havingValue = "true")
 @EnableConfigurationProperties({SwaggerProperties.class})
 public class Swagger2Config {
     private final SwaggerProperties swaggerProperties;
-    private static final Logger logger = LoggerFactory.getLogger(SwaggerProperties.class);
+    private static final Logger logger = LoggerFactory.getLogger(Swagger2Config.class);
 
     public Swagger2Config(SwaggerProperties swaggerProperties) {
-        logger.info("-----swagger启用-----");
+        logger.info("-----------swagger启用-----------");
         this.swaggerProperties = swaggerProperties;
     }
 

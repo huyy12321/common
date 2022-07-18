@@ -1,3 +1,4 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
   cn.hyy.common.config.Swagger2Config,\
-  cn.hyy.common.exception.ExceptionHandler
+  cn.hyy.common.exception.ExceptionHandler,\
+  cn.hyy.common.config.AopConfig

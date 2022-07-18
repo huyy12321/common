@@ -23,12 +23,12 @@ import java.util.Objects;
 @ResponseBody
 public class ExceptionHandler {
 
-    private static final Logger log = LoggerFactory.getLogger(ExceptionHandler.class);
+    private static final Logger logger = LoggerFactory.getLogger(ExceptionHandler.class);
 
     @org.springframework.web.bind.annotation.ExceptionHandler(Exception.class)
     public Object handleException(HttpServletRequest request, Exception e) {
         if (e instanceof CustomException) {
-            log.info("自定义异常: ", e);
+            logger.info("自定义异常: ", e);
             CustomException ex = (CustomException) e;
             return Result.error(ex.getMsg(),ex.getCode());
         } else if(e instanceof MethodArgumentNotValidException){
@@ -36,29 +36,30 @@ public class ExceptionHandler {
             BindingResult bindingResult = ex.getBindingResult();
             String field = Objects.requireNonNull(bindingResult.getFieldError()).getField();
             String error = field + ": " + bindingResult.getFieldError().getDefaultMessage();
-            log.error(request.getServletPath() + " - 参数异常：{}", error);
+            logger.error(request.getServletPath() + " - 参数异常：{}", error);
             return Result.error(error);
         } else if (e instanceof BindException) {
             BindingResult bindingResult = Objects.requireNonNull(((BindException) e).getBindingResult());
             String field = Objects.requireNonNull(bindingResult.getFieldError()).getField();
             String error = field + ": " + bindingResult.getFieldError().getDefaultMessage();
-            log.error(request.getServletPath() + " - 参数异常：", error);
+            logger.error(request.getServletPath() + " - 参数异常：", error);
             return Result.error(error);
         } else if (e instanceof MissingServletRequestParameterException) {
-            log.error(request.getServletPath() + " - 参数异常：", e);
+            logger.error(request.getServletPath() + " - 参数异常：", e);
             return Result.error(e.getMessage());
         } else if (e instanceof MethodArgumentTypeMismatchException) {
             String name = ((MethodArgumentTypeMismatchException) e).getName();
             String error = name + " 非法参数";
-            log.error(error);
+            logger.error(error);
             return Result.error(error);
         } else if (e instanceof MaxUploadSizeExceededException) {
-            log.error(request.getServletPath() + " - 上传文件过大：", e);
+            logger.error(request.getServletPath() + " - 上传文件过大：", e);
             return Result.error("上传文件过大");
         } else if (e instanceof HttpMessageNotReadableException) {
+            logger.error("反序列化出现异常，请检查输入的值是否正常",e);
             return Result.error("反序列化出现异常，请检查输入的值是否正常");
         } else {
-            log.error(request.getServletPath() + " - 未知异常：", e);
+            logger.error(request.getServletPath() + " - 未知异常：", e);
             return Result.error("未知异常");
         }
     }

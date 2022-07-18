@@ -1,15 +1,21 @@
-package cn.hyy.common.config;
+package cn.hyy.common.properties;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
  * @author hyy
  */
-@ConfigurationProperties(prefix = "swagger")
+@ConfigurationProperties(prefix = "common.swagger")
 public class SwaggerProperties {
 
+    /**
+     * swagger扫描的路径
+     */
     private String basePackage;
 
+    /**
+     * 是否开启swagger
+     */
     private Boolean enabled = false;
 
     private String version = "1.0";

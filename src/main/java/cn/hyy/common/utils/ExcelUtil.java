@@ -32,7 +32,7 @@ import java.util.Map;
  * @author hyy
  */
 public class ExcelUtil {
-    private static final Logger log = LoggerFactory.getLogger(ExcelUtil.class);
+    private static final Logger logger = LoggerFactory.getLogger(ExcelUtil.class);
 
     /**
      * 导出excel  通过在导出类的属性上加ApiModelProperty注解来设置表头
@@ -90,7 +90,7 @@ public class ExcelUtil {
             response.setHeader("Content-Disposition", "attachment;filename=" + fileName);
             writer.flush(out);
         } catch (Exception e) {
-            log.error("导出excel发生异常", e);
+            logger.error("导出excel发生异常", e);
         }
     }
 
@@ -116,7 +116,6 @@ public class ExcelUtil {
             reader.setHeaderAlias(map);
             return reader.read(0, 1, c);
         } catch (IOException e) {
-            log.error("导入excel发生异常", e);
             throw new CustomException("导入excel发生异常");
         }
     }
