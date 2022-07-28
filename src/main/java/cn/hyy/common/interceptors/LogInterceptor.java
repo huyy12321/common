@@ -25,7 +25,7 @@ public class LogInterceptor implements MethodInterceptor {
     @Override
     public Object invoke(MethodInvocation invocation) throws Throwable {
         String name = invocation.getMethod().toGenericString();
-        name = name.substring(0,name.indexOf("("));
+        name = name.substring(name.lastIndexOf(" "),name.lastIndexOf("("));
         Object[] arguments = invocation.getArguments();
         logger.info("日志开始--->方法名={},参数={}",name, Arrays.toString(arguments));
         StopWatch stopWatch = new StopWatch();

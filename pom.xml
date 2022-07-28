@@ -18,6 +18,7 @@
         <knife4j-spring-ui.version>3.0.3</knife4j-spring-ui.version>
         <spring-boot.version>2.7.0</spring-boot.version>
         <poi.version>5.2.2</poi.version>
+        <aspectjweaver.version>1.9.9</aspectjweaver.version>
     </properties>
 
     <dependencies>
@@ -25,6 +26,12 @@
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
             <version>${hutool-all.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>${aspectjweaver.version}</version>
         </dependency>
 
         <dependency>
