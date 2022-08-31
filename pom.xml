@@ -20,6 +20,7 @@
         <poi.version>5.2.2</poi.version>
         <aspectjweaver.version>1.9.9</aspectjweaver.version>
         <junrar.version>7.5.3</junrar.version>
+        <mybatis-plus-generator.version>3.5.2</mybatis-plus-generator.version>
     </properties>
 
     <dependencies>
@@ -85,6 +86,12 @@
             <artifactId>hutool-all</artifactId>
             <version>${hutool-all.version}</version>
             <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-generator</artifactId>
+            <version>${mybatis-plus-generator.version}</version>
         </dependency>
     </dependencies>
 </project>
