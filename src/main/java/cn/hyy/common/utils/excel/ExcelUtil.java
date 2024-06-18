@@ -1,4 +1,4 @@
-package cn.hyy.common.utils;
+package cn.hyy.common.utils.excel;
 
 
 import cn.hutool.core.map.MapUtil;
@@ -9,6 +9,7 @@ import cn.hutool.poi.excel.ExcelWriter;
 import cn.hutool.poi.excel.StyleSet;
 
 import cn.hyy.common.exception.CustomException;
+import com.alibaba.excel.EasyExcel;
 import io.swagger.annotations.ApiModelProperty;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.ss.util.CellRangeAddressList;
@@ -19,6 +20,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Field;
@@ -119,4 +121,16 @@ public class ExcelUtil {
             throw new CustomException("导入excel发生异常");
         }
     }
+
+    public static void main(String[] args) {
+        File file = new File("src/main/resources/template/导入数据.xlsx");
+        List<ExcelFile> objects = EasyExcel.read(file)
+                .head(ExcelFile.class)
+                .registerReadListener(new ExcelDataBatchListener())
+                .sheet()
+                .headRowNumber(1)
+                .doReadSync();
+    }
+
+
 }

@@ -19,7 +19,7 @@ import java.util.zip.ZipFile;
  * @author huyangyang
  */
 public class UnFileUtils {
-    private static final Logger log = LoggerFactory.getLogger(ExcelUtil.class);
+    private static final Logger log = LoggerFactory.getLogger(UnFileUtils.class);
     private static final String ZIP = "zip";
     private static final String RAR = "rar";
 

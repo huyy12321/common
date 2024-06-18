@@ -26,7 +26,7 @@ common.log.overtime=10000
 ~~~
 4. 一些工具类
 ~~~
-excel的导入导出：cn.hyy.common.utils.ExcelUtil
+
 根据富文本生成pdf：cn.hyy.common.utils.PdfUtil
 ~~~
 5. 自定义线程池（优先使用最大线程数，然后在入队）

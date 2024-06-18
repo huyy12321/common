@@ -21,6 +21,7 @@
         <aspectjweaver.version>1.9.9</aspectjweaver.version>
         <junrar.version>7.5.3</junrar.version>
         <mybatis-plus-generator.version>3.5.2</mybatis-plus-generator.version>
+        <easyexcel.version>3.0.5</easyexcel.version>
     </properties>
 
     <dependencies>
@@ -68,11 +69,11 @@
             <version>${spring-boot.version}</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.apache.poi</groupId>
-            <artifactId>poi</artifactId>
-            <version>${poi.version}</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.apache.poi</groupId>-->
+<!--            <artifactId>poi</artifactId>-->
+<!--            <version>${poi.version}</version>-->
+<!--        </dependency>-->
 
         <dependency>
             <groupId>com.github.junrar</groupId>
@@ -86,6 +87,12 @@
             <artifactId>hutool-all</artifactId>
             <version>${hutool-all.version}</version>
             <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>easyexcel</artifactId>
+            <version>${easyexcel.version}</version>
         </dependency>
 
         <dependency>
